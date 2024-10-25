@@ -60,7 +60,7 @@
         </div>
     </nav>
   
-    <div id="tabladetalles">
+    <div id="tabladetalles" class="card">
     </div>
 
     <script src="./js/bootstrap.bundle.js"></script>
@@ -84,7 +84,7 @@
                 html += "<img src='"+imagen+"'style='width:150px'/>";
                 html += "<h1>"+nombre+"<h1/>";
                 html += "<h1> Puntuacion: "+puntuacion+"<h1/>";
-                html += "<button onclick='loadPersonajes("+data.idSerie+")'>Personajes</button>";
+                html += "<button onclick='loadPersonajes("+data.idSerie+")' class='btn btn-success'>Personajes</button>";
                 $("#tabladetalles").html(html)
             })
 

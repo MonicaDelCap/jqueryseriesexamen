@@ -62,7 +62,10 @@
 
     <main class="container">
         <div class="bg-light p-5 rounded">
-            <button id="volver">Volver</button>
+            <h1>Personajes</h1>
+            <button id="volver" class="btn btn-success">Volver</button>
+            <br/>
+            <br/>
             <table class="table table-hover" id="tablapersonajes">
                 <thead>
                     <tr>
@@ -80,9 +83,13 @@
     <script src="./js/bootstrap.js"></script>
     <script src="./js/jquery-3.7.1.js"></script>
     <script>
+        
         let url = "https://apiseriespersonajes.azurewebsites.net/";
 
         $(document).ready(function () {
+            
+            loadSeries();
+
             let params = new window.URLSearchParams(window.location.search);
             let id = params.get("id");
             let request = "api/Series/PersonajesSerie/" + id;
@@ -99,8 +106,7 @@
                 })
                 $("#tablapersonajes tbody").html(html);
             })
-
-            loadSeries();
+            
             $("#seelectseries").change(function () {
                 let id = $(this).val();
                 window.location.href = "detalles.html?id=" + id;
@@ -114,7 +120,6 @@
 
         function loadSeries() {
             let request = "api/Series";
-            let html = "";
             $.getJSON(url + request, function (data) {
                 $(data).each(function (index, serie) {
                     var option = $("<option>", { "text": serie.nombre, "value": index + 1 });
@@ -123,11 +128,6 @@
             })
 
         }
-
-        function volver(){
-
-        }
-
     </script>
 
 
